@@ -1,0 +1,4 @@
+.dashingreporter.json
+coverage
+node_modules*
+npm-debug.log*

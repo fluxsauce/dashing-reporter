@@ -1,0 +1,33 @@
+sudo: false
+language: node_js
+node_js:
+- '6'
+cache:
+  directories:
+  - node_modules
+before_script:
+  - wget http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local_latest.tar.gz -O /tmp/dynamodb_local_latest.tar.gz
+  - tar -xzf /tmp/dynamodb_local_latest.tar.gz -C /tmp
+  - java -Djava.library.path=/tmp/DynamoDBLocal_lib -jar /tmp/DynamoDBLocal.jar --sharedDb -inMemory &
+  - sleep 2
+  - ./bin/dashing-reporter.js --createTable
+  - mkdir -p ./coverage
+script:
+  - npm run eslint-json -s
+  - npm test -s
+  - npm run coverage-json
+  - npm run coverage -s
+after_script:
+  - >
+     echo '{"region": "us-west-1"}' > .dashingreporter.json
+  - >
+    DEBUG=* ./bin/dashing-reporter.js
+    --istanbulSummaryJson=./coverage/coverage-summary.json
+    --eslintJson=./coverage/eslint.json
+    --buildNumber=$TRAVIS_BUILD_NUMBER
+    --repoSlug=$TRAVIS_REPO_SLUG
+    --commit=$TRAVIS_COMMIT
+    --branch=$TRAVIS_BRANCH
+    --testResult=$TRAVIS_TEST_RESULT
+    --language=node_js
+    --languageVersion=$(node --version)

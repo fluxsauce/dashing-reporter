@@ -1,0 +1,50 @@
+{
+  "author": "Jon Peck <jpeck@fluxsauce.com> (https://github.com/fluxsauce)",
+  "contributors": [
+    {
+      "name": "Jon Peck",
+      "email": "jpeck@fluxsauce.com",
+      "url": "https://github.com/fluxsauce"
+    }
+  ],
+  "license": "ISC",
+  "bin": {
+    "dashing-reporter": "./bin/dashing-reporter.js"
+  },
+  "name": "dashing-reporter",
+  "description": "Logs Continuous Integration metrics to Amazon DynamoDB.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/fluxsauce/dashing-reporter",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:fluxsauce/dashing-reporter.git"
+  },
+  "engines": {
+    "node": ">=6.7"
+  },
+  "devDependencies": {
+    "eslint": "^3.7.0",
+    "eslint-config-airbnb-base": "^8.0.0",
+    "eslint-plugin-import": "^1.16.0",
+    "istanbul": "^0.4.5",
+    "nodeunit": "^0.10.2"
+  },
+  "scripts": {
+    "coverage": "istanbul check-coverage --statements 100 --lines 100 --branches 100 --functions 100 **/coverage.json",
+    "coverage-json": "istanbul report json-summary",
+    "create-table": "node ./create-table",
+    "debug": "DEBUG=* ./bin/dashing-reporter.js",
+    "eslint-json": "eslint --format=json . > ./coverage/eslint.json",
+    "lint": "eslint .",
+    "test": "istanbul cover -x lib/index.js --print both nodeunit ./test/index.js"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.6.7",
+    "colors": "^1.1.2",
+    "command-line-args": "^3.0.1",
+    "command-line-usage": "^3.0.4",
+    "debug": "^2.2.0",
+    "lodash": "^4.16.4",
+    "nconf": "^0.8.4"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "accessKeyId": "myKeyId",
+  "secretAccessKey": "secretKey",
+  "region": "localhost",
+  "tableName": "dashing-reporter-builds"
+}
