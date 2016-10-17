@@ -4,6 +4,26 @@ Logs Continuous Integration metrics to Amazon DynamoDB.
 
 [![Build Status](https://travis-ci.org/fluxsauce/dashing-reporter.svg?branch=master)](https://travis-ci.org/fluxsauce/dashing-reporter)
 
+## Installation
+
+```bash
+npm install dashing-reporter --save-dev
+```
+
+## Usage
+
+```bash
+./node_modules/.bin/dashing-reporter --help
+```
+
+By default, `dashing-reporter` will use a local configuration and not attempt to connect to AWS.
+
+To use a custom config, copy `.dashingreporter.default.json` to `.dashingreporter.json` to the root of your project and modify to meet your needs.
+
+If you want to use [Environmental Variables](http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html#Credentials_from_Environment_Variables) (and you should, because hard-coding credentials is a terrible idea), remove the corresponding settings from `.dashingreporter.json`.
+
+A working [Travis CI](https://travis-ci.com/) configuration is included; see `.travis.yml` for details. This should theoretically work with Circle CI and others, but it hasn't been explicitly tested.
+
 ## Payload
 
 Each Item has the following attributes:
@@ -22,15 +42,6 @@ Each Item has the following attributes:
 * `timestamp`: Current time in ISO 8601 formatted string.
 * `language`: Primary interpreting language name, like `node_js`.
 * `languageVersion`: Primary interpreting Language version, like `6.7`.
-
-## Amazon Web Services / DynamoDB config
-
-By default, `dashing-reporter` will use a local configuration and not attempt
-to connect to AWS.
-
-To use a custom config, copy `.dashingreporter.default.json` to `.dashingreporter.json` to wherever you are invoking the command and customize as you see fit.
-
-If you want to use [Environmental Variables](http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html#Credentials_from_Environment_Variables) (and you should, because hard-coding credentials is a terrible idea), remove the corresponding settings from `.dashingreporter.json`.
 
 ## Local Development
 
