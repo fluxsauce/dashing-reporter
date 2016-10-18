@@ -15,7 +15,7 @@ before_script:
 script:
   - npm run eslint-json -s
   - npm test -s
-  - npm run coverage-json
+  - npm run coverage-json -s
   - npm run coverage -s
 after_script:
   - >
@@ -25,6 +25,7 @@ after_script:
     --istanbulSummaryJson=./coverage/coverage-summary.json
     --eslintJson=./coverage/eslint.json
     --buildNumber=$TRAVIS_BUILD_NUMBER
+    --jobNumber=$TRAVIS_JOB_NUMBER
     --repoSlug=$TRAVIS_REPO_SLUG
     --commit=$TRAVIS_COMMIT
     --branch=$TRAVIS_BRANCH
