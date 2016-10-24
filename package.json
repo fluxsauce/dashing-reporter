@@ -17,7 +17,7 @@
   "homepage": "https://github.com/fluxsauce/dashing-reporter",
   "repository": {
     "type": "git",
-    "url": "git@github.com:fluxsauce/dashing-reporter.git"
+    "url": "fluxsauce/dashing-reporter"
   },
   "engines": {
     "node": ">=6.7"

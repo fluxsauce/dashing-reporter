@@ -1,5 +1,11 @@
 #!/usr/bin/env node
 
+if (process.version.split('.')[0].replace('v', '') < 6) {
+  console.log('dashing-reporter requires node.js 6 or higher.');
+  // Graceful exit to make CI logic easier.
+  process.exit(0);
+}
+
 const _ = require('lodash');
 const AWS = require('aws-sdk');
 const awsConfig = require('../lib/awsConfig');
