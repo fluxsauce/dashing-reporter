@@ -13,7 +13,7 @@
   },
   "name": "dashing-reporter",
   "description": "Logs Continuous Integration metrics to Amazon DynamoDB.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/fluxsauce/dashing-reporter",
   "repository": {
     "type": "git",
