@@ -44,7 +44,7 @@
     "command-line-args": "^3.0.1",
     "command-line-usage": "^3.0.4",
     "debug": "^2.2.0",
-    "lodash": "^4.16.4",
+    "lodash": "^4.16.5",
     "nconf": "^0.8.4"
   }
 }
