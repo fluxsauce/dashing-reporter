@@ -13,6 +13,7 @@ before_script:
   - ./bin/dashing-reporter.js --createTable
   - mkdir -p ./coverage
 script:
+  - npm run lint -s
   - npm run eslint-json -s
   - npm test -s
   - npm run coverage-json -s
