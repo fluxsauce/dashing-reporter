@@ -57,10 +57,7 @@ else if (options._all.createTable) {
 const item = {};
 
 // Validation.
-const validationFailures = [].concat(
-  optionValidationFailures(options, optionDefinitions),
-  optionValidationNumeric(options, optionDefinitions)
-);
+const validationFailures = [].concat(optionValidationFailures(options, optionDefinitions), optionValidationNumeric(options, optionDefinitions));
 
 // ESLint JSON parsing.
 if (options._all.eslintJson) {
