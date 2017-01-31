@@ -41,7 +41,7 @@
   "dependencies": {
     "aws-sdk": "^2.6.7",
     "colors": "^1.1.2",
-    "command-line-args": "^3.0.1",
+    "command-line-args": "^4.0.0",
     "command-line-usage": "^3.0.4",
     "debug": "^2.2.0",
     "lodash": "^4.16.4",
